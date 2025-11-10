@@ -39,9 +39,32 @@ When building a site that uses the GitHub Pages gem, follow the instructions abo
 ## `<lastmod>` tag
 The `<lastmod>` tag in the `sitemap.xml` will reflect by priority:
 
-1.   The modified date of the file as reported by the filesystem if you have `jekyll-last-modified-at` plugin installed (not compatible with GitHub Pages auto building)
-2.   A personalised date if you add the variable `last_modified_at:` with a date in the Front Matter
+1.   A personalised date if you add the variable `last_modified_at:` with a date in the Front Matter
+2.   The modified date of the file as reported by the filesystem if you have `jekyll-last-modified-at` plugin installed (not compatible with GitHub Pages auto building)
 3.   The creation date of your post (corresponding to the `post.date` variable)
+
+### Git-based Last Modified Date
+
+You can configure the plugin to use git commit dates for the `<lastmod>` tag instead of filesystem modification dates. This is useful when deploying via git, as filesystem dates are often not preserved.
+
+To enable git-based lastmod, add the following to your `_config.yml`:
+
+```yml
+sitemap:
+  lastmod_source: git
+```
+
+When git mode is enabled, the priority order becomes:
+
+1.   A personalised date if you add the variable `last_modified_at:` with a date in the Front Matter
+2.   The date of the last git commit that modified the file
+3.   The creation date of your post (corresponding to the `post.date` variable)
+
+**Important notes:**
+- Git must be installed and the site must be in a git repository
+- Only files tracked by git will have lastmod dates (untracked files will omit the tag)
+- If git is unavailable or a file is not in git history, the `<lastmod>` tag will be omitted (no fallback to filesystem dates)
+- Front matter `last_modified_at` always takes precedence, even in git mode
 
 ## Exclusions
 

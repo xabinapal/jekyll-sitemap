@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "shellwords"
+require "time"
+require "pathname"
+require_relative "../jekyll-sitemap/git_helper"
 
 module Jekyll
   class JekyllSitemap < Jekyll::Generator
@@ -68,6 +72,45 @@ module Jekyll
 
     def pages_and_files
       @pages_and_files ||= @site.pages + @site.static_files
+    end
+  end
+
+  # Register git-based lastmod hooks at plugin load time
+  Jekyll::Hooks.register [:pages, :documents], :post_init do |item|
+    # Check if git mode is enabled in site config
+    git_enabled = item.site.config.dig("sitemap", "lastmod_source")&.to_s&.downcase == "git"
+    next unless git_enabled
+
+    # Skip if last_modified_at is already set in front matter
+    if item.data["last_modified_at"]
+      Jekyll.logger.debug "GitLastMod:", "Skipping #{item.relative_path rescue item.path} (already has last_modified_at)"
+      next
+    end
+
+    # Get the source file path
+    source_path = if item.respond_to?(:relative_path)
+                    item.relative_path
+                  elsif item.respond_to?(:path)
+                    path = item.path
+                    site_source = item.site.source
+                    if path.start_with?(site_source)
+                      path.sub(%r!^#{Regexp.escape(site_source)}/!, "")
+                    else
+                      path
+                    end
+                  else
+                    next
+                  end
+
+    # Try to get git commit date
+    Jekyll.logger.debug "GitLastMod:", "Getting git date for: #{source_path}"
+    git_date = Jekyll::Sitemap::GitHelper.last_commit_date(source_path, item.site.source)
+    
+    if git_date
+      item.data["last_modified_at"] = git_date
+      Jekyll.logger.info "GitLastMod:", "Set last_modified_at for #{source_path} to #{git_date}"
+    else
+      Jekyll.logger.debug "GitLastMod:", "No git date found for #{source_path}"
     end
   end
 end
