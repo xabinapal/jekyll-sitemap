@@ -3,5 +3,34 @@ Configuration file: /plugin/test_site/_config.yml
        Destination: /plugin/test_site/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
+[GitLastMod] Hook fired for _posts/2024-01-01-test-post.md
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Getting git date for: _posts/2024-01-01-test-post.md
+[GitLastMod] ✗ No git date found
+[GitLastMod] Hook fired for with-frontmatter.md
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Skipping (already has last_modified_at): 2023-12-25 00:00:00 +0000
+[GitLastMod] Hook fired for index.md
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Getting git date for: index.md
+[GitLastMod] ✗ No git date found
+[GitLastMod] Hook fired for about.md
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Getting git date for: about.md
+[GitLastMod] ✗ No git date found
+[GitLastMod] Hook fired for sitemap.xml
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Getting git date for: sitemap.xml
+[GitLastMod] ✗ No git date found
+[GitLastMod] Hook fired for robots.txt
+[GitLastMod] Git mode enabled: true
+[GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
+[GitLastMod] Getting git date for: robots.txt
+[GitLastMod] ✗ No git date found
 [33m     Build Warning: Layout 'post' requested in _posts/2024-01-01-test-post.md does not exist.[0m
 [33m     Build Warning: Layout 'default' requested in index.md does not exist.[0m
