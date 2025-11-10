@@ -10,9 +10,9 @@ Configuration file: /plugin/test_site/_config.yml
   [GitHelper] last_commit_date called: file_path=_posts/2024-01-01-test-post.md, site_source=/plugin/test_site
   [GitHelper] absolute_path=/plugin/test_site/_posts/2024-01-01-test-post.md, exists=true
   [GitHelper] git_relative_path=test_site/_posts/2024-01-01-test-post.md
-  [GitHelper] Running: git log -1 --format=%aI -- test_site/_posts/2024-01-01-test-post.md
-  [GitHelper] timestamp=""
-[GitLastMod] ✗ No git date found
+  [GitHelper] Running: cd /plugin && git log -1 --format=%aI -- test_site/_posts/2024-01-01-test-post.md
+  [GitHelper] timestamp="2025-11-10T19:33:23+00:00"
+[GitLastMod] ✓ Set last_modified_at to 2025-11-10 19:33:23 +0000
 [GitLastMod] Hook fired for with-frontmatter.md
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
@@ -24,9 +24,9 @@ Configuration file: /plugin/test_site/_config.yml
   [GitHelper] last_commit_date called: file_path=index.md, site_source=/plugin/test_site
   [GitHelper] absolute_path=/plugin/test_site/index.md, exists=true
   [GitHelper] git_relative_path=test_site/index.md
-  [GitHelper] Running: git log -1 --format=%aI -- test_site/index.md
-  [GitHelper] timestamp=""
-[GitLastMod] ✗ No git date found
+  [GitHelper] Running: cd /plugin && git log -1 --format=%aI -- test_site/index.md
+  [GitHelper] timestamp="2025-11-10T19:33:23+00:00"
+[GitLastMod] ✓ Set last_modified_at to 2025-11-10 19:33:23 +0000
 [GitLastMod] Hook fired for about.md
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
@@ -34,9 +34,9 @@ Configuration file: /plugin/test_site/_config.yml
   [GitHelper] last_commit_date called: file_path=about.md, site_source=/plugin/test_site
   [GitHelper] absolute_path=/plugin/test_site/about.md, exists=true
   [GitHelper] git_relative_path=test_site/about.md
-  [GitHelper] Running: git log -1 --format=%aI -- test_site/about.md
-  [GitHelper] timestamp=""
-[GitLastMod] ✗ No git date found
+  [GitHelper] Running: cd /plugin && git log -1 --format=%aI -- test_site/about.md
+  [GitHelper] timestamp="2025-11-10T19:33:23+00:00"
+[GitLastMod] ✓ Set last_modified_at to 2025-11-10 19:33:23 +0000
 [GitLastMod] Hook fired for sitemap.xml
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}

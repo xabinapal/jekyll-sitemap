@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "pathname"
+require "shellwords"
+require "time"
+
 module Jekyll
   module Sitemap
     # Helper module for retrieving git commit information
@@ -32,12 +36,17 @@ module Jekyll
         return nil if git_relative_path.nil?
 
         # Get the last commit date for this file
-        timestamp = `git log -1 --format=%aI -- #{Shellwords.escape(git_relative_path)} 2>/dev/null`.strip
+        # Need to run git log from the git root directory
+        git_root = `git rev-parse --show-toplevel 2>/dev/null`.strip
+        timestamp = `cd #{Shellwords.escape(git_root)} && git log -1 --format=%aI -- #{Shellwords.escape(git_relative_path)} 2>/dev/null`.strip
         return nil if timestamp.empty?
 
         Time.parse(timestamp)
       rescue StandardError => e
-        Jekyll.logger.debug "GitHelper:", "Error getting commit date for #{file_path}: #{e.message}"
+        # Log error if Jekyll is loaded, otherwise silently return nil
+        if defined?(Jekyll) && defined?(Jekyll.logger)
+          Jekyll.logger.debug "GitHelper:", "Error getting commit date for #{file_path}: #{e.message}"
+        end
         nil
       end
 
@@ -53,7 +62,10 @@ module Jekyll
         # Calculate relative path from git root
         Pathname.new(absolute_path).relative_path_from(Pathname.new(git_root)).to_s
       rescue StandardError => e
-        Jekyll.logger.debug "GitHelper:", "Error getting git relative path: #{e.message}"
+        # Log error if Jekyll is loaded, otherwise silently return nil
+        if defined?(Jekyll) && defined?(Jekyll.logger)
+          Jekyll.logger.debug "GitHelper:", "Error getting git relative path: #{e.message}"
+        end
         nil
       end
     end

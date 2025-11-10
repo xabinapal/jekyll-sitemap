@@ -82,10 +82,7 @@ module Jekyll
     next unless git_enabled
 
     # Skip if last_modified_at is already set in front matter
-    if item.data["last_modified_at"]
-      Jekyll.logger.debug "GitLastMod:", "Skipping #{item.relative_path rescue item.path} (already has last_modified_at)"
-      next
-    end
+    next if item.data["last_modified_at"]
 
     # Get the source file path
     source_path = if item.respond_to?(:relative_path)
@@ -103,14 +100,11 @@ module Jekyll
                   end
 
     # Try to get git commit date
-    Jekyll.logger.debug "GitLastMod:", "Getting git date for: #{source_path}"
     git_date = Jekyll::Sitemap::GitHelper.last_commit_date(source_path, item.site.source)
     
     if git_date
       item.data["last_modified_at"] = git_date
-      Jekyll.logger.info "GitLastMod:", "Set last_modified_at for #{source_path} to #{git_date}"
-    else
-      Jekyll.logger.debug "GitLastMod:", "No git date found for #{source_path}"
+      Jekyll.logger.debug "GitLastMod:", "Set last_modified_at for #{source_path} to #{git_date}"
     end
   end
 end
