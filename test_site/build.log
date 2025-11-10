@@ -7,6 +7,11 @@ Configuration file: /plugin/test_site/_config.yml
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
 [GitLastMod] Getting git date for: _posts/2024-01-01-test-post.md
+  [GitHelper] last_commit_date called: file_path=_posts/2024-01-01-test-post.md, site_source=/plugin/test_site
+  [GitHelper] absolute_path=/plugin/test_site/_posts/2024-01-01-test-post.md, exists=true
+  [GitHelper] git_relative_path=test_site/_posts/2024-01-01-test-post.md
+  [GitHelper] Running: git log -1 --format=%aI -- test_site/_posts/2024-01-01-test-post.md
+  [GitHelper] timestamp=""
 [GitLastMod] ✗ No git date found
 [GitLastMod] Hook fired for with-frontmatter.md
 [GitLastMod] Git mode enabled: true
@@ -16,23 +21,37 @@ Configuration file: /plugin/test_site/_config.yml
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
 [GitLastMod] Getting git date for: index.md
+  [GitHelper] last_commit_date called: file_path=index.md, site_source=/plugin/test_site
+  [GitHelper] absolute_path=/plugin/test_site/index.md, exists=true
+  [GitHelper] git_relative_path=test_site/index.md
+  [GitHelper] Running: git log -1 --format=%aI -- test_site/index.md
+  [GitHelper] timestamp=""
 [GitLastMod] ✗ No git date found
 [GitLastMod] Hook fired for about.md
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
 [GitLastMod] Getting git date for: about.md
+  [GitHelper] last_commit_date called: file_path=about.md, site_source=/plugin/test_site
+  [GitHelper] absolute_path=/plugin/test_site/about.md, exists=true
+  [GitHelper] git_relative_path=test_site/about.md
+  [GitHelper] Running: git log -1 --format=%aI -- test_site/about.md
+  [GitHelper] timestamp=""
 [GitLastMod] ✗ No git date found
 [GitLastMod] Hook fired for sitemap.xml
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
 [GitLastMod] Getting git date for: sitemap.xml
+  [GitHelper] last_commit_date called: file_path=sitemap.xml, site_source=/plugin/test_site
+  [GitHelper] absolute_path=/plugin/test_site/sitemap.xml, exists=false
 [GitLastMod] ✗ No git date found
 [GitLastMod] Hook fired for robots.txt
 [GitLastMod] Git mode enabled: true
 [GitLastMod] Config sitemap: {"lastmod_source"=>"git"}
 [GitLastMod] Getting git date for: robots.txt
+  [GitHelper] last_commit_date called: file_path=robots.txt, site_source=/plugin/test_site
+  [GitHelper] absolute_path=/plugin/test_site/robots.txt, exists=false
 [GitLastMod] ✗ No git date found
 [33m     Build Warning: Layout 'post' requested in _posts/2024-01-01-test-post.md does not exist.[0m
 [33m     Build Warning: Layout 'default' requested in index.md does not exist.[0m
-                    done in 0.084 seconds.
+                    done in 0.092 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
