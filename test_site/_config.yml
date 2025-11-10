@@ -1,0 +1,15 @@
+title: Test Site
+url: "http://example.com"
+
+# Enable git-based lastmod
+sitemap:
+  lastmod_source: git
+
+plugins:
+  - jekyll-sitemap
+
+# Collections for testing
+collections:
+  posts:
+    output: true
+
