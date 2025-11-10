@@ -5,5 +5,5 @@ Configuration file: /plugin/test_site/_config.yml
       Generating... 
 [33m     Build Warning: Layout 'post' requested in _posts/2024-01-01-test-post.md does not exist.[0m
 [33m     Build Warning: Layout 'default' requested in index.md does not exist.[0m
-                    done in 0.088 seconds.
+                    done in 0.086 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
